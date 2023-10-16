@@ -55,7 +55,7 @@ namespace CleanArchitecture.Application.Features.Streamers.Commands
             {
                 To = "dykeylu@hotmail.com",
                 Body = "La compania de streamer se creo correctamente",
-                DisplayName = streamer.Nombre,
+                DisplayName = streamer.Nombre!,
                 Subject = "Mensaje de alerta",
 
             };
