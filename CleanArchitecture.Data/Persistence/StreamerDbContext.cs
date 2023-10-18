@@ -9,7 +9,7 @@ namespace CleanArchitecture.Infrastructure.Persistence
     {
         public static async Task SeedAsync(StreamerDbContext context, ILogger<StreamerDbContextSeed> logger) 
         {
-            if (context.Streamers!.Any())
+            if (!context.Streamers!.Any())
             {
                await  context.Streamers!.AddRangeAsync(GetPreconfiguredStreamer());            
 
