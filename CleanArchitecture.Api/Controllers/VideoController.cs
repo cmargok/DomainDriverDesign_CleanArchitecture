@@ -5,8 +5,10 @@ using System.Net;
 
 namespace CleanArchitecture.Api.Controllers
 {
+
+
     [ApiController]
-    [Route("a[i/v1/[controller]")]
+    [Route("api/v1/[controller]")]
     public class VideoController : ControllerBase
     {
         private readonly IMediator _mediator;
