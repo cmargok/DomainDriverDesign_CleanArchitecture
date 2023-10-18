@@ -2,16 +2,10 @@
 using CleanArchitecture.Domain.Common;
 using CleanArchitecture.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
-
 namespace CleanArchitecture.Infrastructure.Repositories
 {
+
     public class BaseRepository<T> : IAsyncRepository<T> where T : BaseDomainModel
     {
         private readonly StreamerDbContext _context;
