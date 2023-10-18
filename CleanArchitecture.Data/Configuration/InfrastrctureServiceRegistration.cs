@@ -29,7 +29,7 @@ namespace CleanArchitecture.Infrastructure.Configuration
             services.AddScoped<IVideoRepository, VideoRepository>();
             services.AddScoped<IStreamerRepository, StreamerRepository>();
 
-            services.Configure<EmailSettings>(c => config.GetSection("EmailSettings"));
+            services.Configure<EmailSettings>(config.GetSection("EmailSettings"));
             services.AddTransient<IEmailService, EmailService>();
 
             return services;

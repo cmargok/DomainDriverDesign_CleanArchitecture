@@ -37,7 +37,7 @@ namespace CleanArchitecture.Api.Controllers
         }
 
 
-        [HttpPut("{id}", Name = "DeleteStreamer")]
+        [HttpDelete("{id}", Name = "DeleteStreamer")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesDefaultResponseType]

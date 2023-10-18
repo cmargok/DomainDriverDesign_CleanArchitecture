@@ -54,7 +54,7 @@ namespace CleanArchitecture.Infrastructure.Email
             {
                 return true;
             }
-
+            var h = await response.Content.ReadAsStringAsync();
             Logger.LogError("el email no fue enviado con exito");
 
             return false;
