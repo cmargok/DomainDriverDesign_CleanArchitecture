@@ -17,18 +17,24 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
+//creamos el scope
 using (var scope = app.Services.CreateScope())
 {
+    //obtenemos los servicios
     var service = scope.ServiceProvider;
 
+    //obtenemos la facotory de loggers
     var loggerFactory = service.GetRequiredService<ILoggerFactory>();
 
+    //obtenemos el contexto o DBContext de la applicacion
     StreamerDbContext context = scope.ServiceProvider.GetRequiredService<StreamerDbContext>();
 
+    //hace un update-database automatico, si hay migraciones pendientes, si no hay pendientes, no hace nada
     await context.Database.MigrateAsync();
 
+    //llamamos al metodo estatico para sembrar la dataSS
     await StreamerDbContextSeed.SeedAsync(context, loggerFactory.CreateLogger<StreamerDbContextSeed>());
-
 
 }
 
