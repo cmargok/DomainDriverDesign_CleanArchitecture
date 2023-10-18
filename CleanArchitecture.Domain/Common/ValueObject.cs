@@ -9,7 +9,7 @@ namespace CleanArchitecture.Domain.Common
             {
                 return false;
             }
-            return ReferenceEquals(left, right) || left.Equals(right);
+            return ReferenceEquals(left, right) || left!.Equals(right!);
         }
 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
@@ -19,7 +19,9 @@ namespace CleanArchitecture.Domain.Common
 
         protected abstract IEnumerable<object> GetEqualityComponents();
 
+#pragma warning disable CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
         public override bool Equals(object obj)
+#pragma warning restore CS8765 // Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes).
         {
             if (obj == null || obj.GetType() != GetType())
             {

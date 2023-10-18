@@ -61,7 +61,7 @@ namespace CleanArchitecture.Infrastructure.Repositories
 
         }
 
-        public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<Expression<Func<T, object>>> includes = null, bool disableTracking = true)
+        public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null!, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null!, List<Expression<Func<T, object>>> includes = null!, bool disableTracking = true)
         {
             IQueryable<T> query = _context.Set<T>();
 
@@ -82,7 +82,9 @@ namespace CleanArchitecture.Infrastructure.Repositories
 
         public virtual async Task<T> GetByIdAsync(int id)
         {
+#pragma warning disable CS8603 // Possible null reference return.
             return await _context.Set<T>().FindAsync(id);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public async Task<T> UpdateAsync(T entity)
