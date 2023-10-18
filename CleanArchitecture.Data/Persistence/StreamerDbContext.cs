@@ -5,6 +5,32 @@ using Microsoft.Extensions.Logging;
 
 namespace CleanArchitecture.Infrastructure.Persistence
 {
+    public class StreamerDbContextSeed 
+    {
+        public static async Task SeedAsync(StreamerDbContext context, ILogger<StreamerDbContextSeed> logger) 
+        {
+            if (context.Streamers!.Any())
+            {
+               await  context.Streamers!.AddRangeAsync(GetPreconfiguredStreamer());            
+
+                await context.SaveChangesAsync();
+
+                logger.LogInformation("insertando el seed al dbcontext", typeof(StreamerDbContext).Name);
+            }
+            
+        
+        }
+
+        private static IEnumerable<Streamer> GetPreconfiguredStreamer() 
+            => new List<Streamer>
+            {
+                new Streamer{ CreatedBy = "kevin", Nombre = "Monokai", Url = "http://monokai.com" },
+                new Streamer{ CreatedBy = "kevin", Nombre = "visualKai", Url = "http://visualKai.com" },
+            };
+         
+    
+    
+    }
     public class StreamerDbContext : DbContext
     {
         /*   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
