@@ -1,5 +1,5 @@
 ﻿using CleanArchitecture.Application.Contracts.Infrastructure;
-using CleanArchitecture.Application.Models;
+using CleanArchitecture.Application.Models.EmailModels;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -18,7 +18,7 @@ namespace CleanArchitecture.Infrastructure.Email
             Logger = logger;
         }
 
-        public async Task<bool> SendEmailAsync(Application.Models.Email email)
+        public async Task<bool> SendEmailAsync(Application.Models.EmailModels.Email email)
         {
             var emailRequest = new EmailToSendDto()
             {

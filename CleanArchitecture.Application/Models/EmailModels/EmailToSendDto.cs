@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace CleanArchitecture.Application.Models
+namespace CleanArchitecture.Application.Models.EmailModels
 {
     public class EmailToSendDto
     {

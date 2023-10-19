@@ -2,6 +2,7 @@
 using CleanArchitecture.Application.Contracts.Infrastructure;
 using CleanArchitecture.Application.Contracts.Persistence;
 using CleanArchitecture.Application.Models;
+using CleanArchitecture.Application.Models.EmailModels;
 using CleanArchitecture.Domain;
 using MediatR;
 using Microsoft.Extensions.Logging;

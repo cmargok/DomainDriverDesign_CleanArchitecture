@@ -1,7 +1,7 @@
 ﻿using CleanArchitecture.Application.Behaviours;
 using CleanArchitecture.Application.Contracts.Infrastructure;
 using CleanArchitecture.Application.Contracts.Persistence;
-using CleanArchitecture.Application.Models;
+using CleanArchitecture.Application.Models.EmailModels;
 using CleanArchitecture.Infrastructure.Email;
 using CleanArchitecture.Infrastructure.Persistence;
 using CleanArchitecture.Infrastructure.Repositories;

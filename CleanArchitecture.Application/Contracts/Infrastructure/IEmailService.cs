@@ -1,5 +1,4 @@
-﻿using CleanArchitecture.Application.Models;
-
+﻿using CleanArchitecture.Application.Models.EmailModels;
 
 namespace CleanArchitecture.Application.Contracts.Infrastructure
 {

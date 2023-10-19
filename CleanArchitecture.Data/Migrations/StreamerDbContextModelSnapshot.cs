@@ -50,7 +50,7 @@ namespace CleanArchitecture.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Actores");
+                    b.ToTable("Actores", (string)null);
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domain.Director", b =>
@@ -87,7 +87,7 @@ namespace CleanArchitecture.Data.Migrations
                     b.HasIndex("VideoId")
                         .IsUnique();
 
-                    b.ToTable("Directores");
+                    b.ToTable("Directores", (string)null);
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domain.Streamer", b =>
@@ -118,7 +118,7 @@ namespace CleanArchitecture.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Streamers");
+                    b.ToTable("Streamers", (string)null);
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domain.Video", b =>
@@ -151,7 +151,7 @@ namespace CleanArchitecture.Data.Migrations
 
                     b.HasIndex("StreamerId");
 
-                    b.ToTable("Videos");
+                    b.ToTable("Videos", (string)null);
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domain.VideoActor", b =>
@@ -181,7 +181,7 @@ namespace CleanArchitecture.Data.Migrations
 
                     b.HasIndex("VideoId");
 
-                    b.ToTable("VideoActor");
+                    b.ToTable("VideoActor", (string)null);
                 });
 
             modelBuilder.Entity("CleanArchitecture.Domain.Director", b =>
