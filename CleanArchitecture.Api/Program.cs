@@ -1,3 +1,4 @@
+using CleanArchitecture.Api.MIddlewares;
 using CleanArchitecture.Application.Configuration;
 using CleanArchitecture.Infrastructure.Configuration;
 using CleanArchitecture.Infrastructure.Persistence;
@@ -50,12 +51,13 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<ExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
 app.UseCors("CorsPolicy");
+
+app.UseAuthorization();
 
 app.MapControllers();
 
