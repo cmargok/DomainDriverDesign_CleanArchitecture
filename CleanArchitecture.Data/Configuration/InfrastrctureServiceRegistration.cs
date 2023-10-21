@@ -1,6 +1,7 @@
 ﻿using CleanArchitecture.Application.Behaviours;
 using CleanArchitecture.Application.Contracts.Infrastructure;
 using CleanArchitecture.Application.Contracts.Persistence;
+using CleanArchitecture.Application.Contracts.UnitOfWork;
 using CleanArchitecture.Application.Models.EmailModels;
 using CleanArchitecture.Infrastructure.Email;
 using CleanArchitecture.Infrastructure.Persistence;
@@ -31,6 +32,8 @@ namespace CleanArchitecture.Infrastructure.Configuration
 
             services.Configure<EmailSettings>(config.GetSection("EmailSettings"));
             services.AddTransient<IEmailService, EmailService>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }

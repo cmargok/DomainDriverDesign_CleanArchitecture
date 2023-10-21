@@ -6,7 +6,6 @@ using System.Net;
 namespace CleanArchitecture.Api.Controllers
 {
 
-
     [ApiController]
     [Route("api/v1/[controller]")]
     public class VideoController : ControllerBase
