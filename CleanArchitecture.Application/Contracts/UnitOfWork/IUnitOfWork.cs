@@ -10,7 +10,11 @@ namespace CleanArchitecture.Application.Contracts.UnitOfWork
 {
     public interface IUnitOfWork : IDisposable
     {
-        public  IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
+        public IAsyncRepository<TEntity> Repository<TEntity>() where TEntity : BaseDomainModel;
         public Task<int> Complete();
+
+        public IVideoRepository VideoRepository {get; }
+
+        public IStreamerRepository StreamerRepository { get; }
     }
 }
