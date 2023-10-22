@@ -22,7 +22,8 @@ namespace CleanArchitecture.Application.Tests.Features.Video.Queries
 
         public GetVideosListQueryHandlerXUnitTests()
         {
-            _unitOfWork = MockUnitOfWork.GetUnitOfWork();
+            _unitOfWork = MockUnitOfWork.GetUnitOfWorkDBINMEMORY();
+
             var mapperConfig = new MapperConfiguration(
                 c => c.AddProfile<MappingProfile>());
 
@@ -43,6 +44,25 @@ namespace CleanArchitecture.Application.Tests.Features.Video.Queries
 
             result.Should().BeOfType<List<VideoVm>>();
             result.Should().BeOfType(typeof(List<VideoVm>));
+        }
+
+
+        [Fact]
+        public async Task Handle_whenIsCalled_shouldReturnVideosList_WITHdATABASEINMEMORY()
+        {
+            var handler = new GetVideosListQueryHandler(_mapper, _unitOfWork.Object);
+
+            var request = new GetVideosListQuery("systems");
+
+            var result = await handler.Handle(request, CancellationToken.None);
+
+            result.ShouldBeOfType(typeof(List<VideoVm>));
+            result.ShouldBeOfType<List<VideoVm>>();
+
+            result.Should().BeOfType<List<VideoVm>>();
+            result.Should().BeOfType(typeof(List<VideoVm>));
+
+            result.Count.ShouldBe(1);
         }
     }
 }
